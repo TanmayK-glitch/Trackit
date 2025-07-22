@@ -13,21 +13,13 @@ body {
 
 :root {
     --bg-primary: #0d0d0d;
-    /* Main background – pure dark */
     --bg-secondary: #1a1a1a;
-    /* Secondary sections/cards */
     --text-primary: #f5f5f5;
-    /* Main text – soft white */
     --text-secondary: #a3a3a3;
-    /* Subtle muted gray */
     --inputFields: #262626;
-    /* Input field backgrounds */
     --accentColor: #f97316;
-    /* Primary accent – vibrant orange */
     --borderColor: #333333;
-    /* For inputs, cards, containers */
     --dangerDelete: #dc2626;
-    /* For delete buttons or alerts */
 }
 
 
@@ -75,7 +67,6 @@ body {
 }
 
 .mainContainer {
-    /* display: flex; */
     justify-self: center;
     height: 45vh;
     border: 1px solid var(--borderColor);
