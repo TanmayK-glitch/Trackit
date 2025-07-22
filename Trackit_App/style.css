@@ -39,6 +39,7 @@ body {
     align-items: center;
     gap: 500px;
     color: var(--text-primary);
+    border: 1px solid var(--borderColor);
 }
 
 .navbar .logo h1 {
@@ -48,28 +49,65 @@ body {
 .navbar .nav-controls i {
     font-size: 1.6rem;
     cursor: pointer;
-    border: 1px solid var(--text-secondary);
+    border: 1px solid var(--accentColor);
     padding: 9px 9px;
     border-radius: 6px;
+    box-shadow: 0 0 8px 0.2px var(--accentColor);
+
 }
 
-.navbar .nav-controls .ri-sun-fill {
+.navbar .nav-controls .ri-moon-fill {
     display: none;
 }
 
-.mainContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.tagLine {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.tagLine span {
+    color: var(--accentColor);
+    text-decoration: underline;
+    text-underline-offset: 11px;
+}
+
+.mainContainer {
+    /* display: flex; */
     justify-self: center;
-    height: 70vh;
+    height: 45vh;
     border: 1px solid var(--borderColor);
     color: var(--text-secondary);
     max-width: 400px;
     padding: 50px 40px;
     border-radius: 20px;
+    width: 100%;
 }
 
-.mainContainer .containerForm label{
-    color: var(--text-secondary);
+.mainContainer .containerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainContainer .containerForm input,
+select {
+    background-color: var(--inputFields);
+    color: var(--text-primary);
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.mainContainer .containerForm input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accentColor);
+}
+
+.mainContainer .containerForm label {
+    font-size: 1.2rem;
+    font-weight: 700;
 }
