@@ -9,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-primary);
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -41,15 +42,25 @@ body {
 .navbar .nav-controls i {
     font-size: 1.6rem;
     cursor: pointer;
-    border: 1px solid var(--accentColor);
     padding: 9px 9px;
     border-radius: 6px;
-    box-shadow: 0 0 8px 0.2px var(--accentColor);
 
 }
 
 .navbar .nav-controls .ri-moon-fill {
     display: none;
+}
+
+.navbar .nav-controls button {
+    background-color: var(--accentColor);
+    color: var(--bg-primary);
+    font-weight: 600;
+    border: 1px solid transparent;
+    padding: 5px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px;
+
 }
 
 .tagLine {
@@ -60,6 +71,10 @@ body {
     margin-bottom: 10vh;
 }
 
+.tagLine h1 {
+    font-weight: 600;
+}
+
 .tagLine span {
     color: var(--accentColor);
     text-decoration: underline;
@@ -68,7 +83,7 @@ body {
 
 .mainContainer {
     justify-self: center;
-    height: 45vh;
+    height: auto;
     border: 1px solid var(--borderColor);
     color: var(--text-secondary);
     max-width: 400px;
@@ -78,18 +93,29 @@ body {
 }
 
 .mainContainer .containerForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.mainContainer .containerForm>div {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .mainContainer .containerForm input,
-select {
+.mainContainer .containerForm select {
+    width: 100%;
+    box-sizing: border-box;
     background-color: var(--inputFields);
-    color: var(--text-primary);
     padding: 0.65rem 0.75rem;
-    border-radius: 8px;
-    transition: 0.2s ease-in-out;
+    border-radius: 7px;
+    transition: 0.3s ease-in-out;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+
+
 }
 
 .mainContainer .containerForm input:focus,
@@ -99,6 +125,74 @@ select:focus {
 }
 
 .mainContainer .containerForm label {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.mainContainer #addBtn {
+    display: flex;
+    margin-top: 25px;
+    padding: 0.65rem 11rem;
+    justify-self: center;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    background-color: var(--accentColor);
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.mainContainer #addBtn:hover {
+    background-color: #ff9800;
+}
+
+.mainContainer .summary {
+    justify-self: center;
+    padding: 3rem 4rem;
+}
+
+.mainContainer .summary h2 {
+    font-size: 2.1rem;
     font-weight: 700;
+}
+
+.mainContainer .summary h2 span {
+    color: var(--accentColor);
+}
+
+.mainContainer .filter h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    justify-self: center;
+    margin-bottom: 15px;
+}
+
+.mainContainer .filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mainContainer .filter h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.mainContainer .filter #filterCategory {
+    background-color: var(--inputFields);
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    padding: 0.5rem 7.5rem;
+    box-shadow: 0 20px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 7px;
+    transition: 0.2s ease-in-out;
+}
+
+.mainContainer .filter #filterCategory:focus,
+#filterCategory:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accentColor);
+    
 }
