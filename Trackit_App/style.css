@@ -37,6 +37,7 @@ body {
 
 .navbar .logo h1 {
     font-size: 3rem;
+    font-weight: 600;
 }
 
 .navbar .nav-controls i {
@@ -124,6 +125,12 @@ select:focus {
     border-color: var(--accentColor);
 }
 
+.mainContainer .containerForm #category:focus {
+    background-color: var(--bg-secondary);
+    border-color: var(--accentColor);
+}
+
+
 .mainContainer .containerForm label {
     font-size: 1.15rem;
     font-weight: 500;
@@ -194,5 +201,5 @@ select:focus {
 #filterCategory:hover {
     background-color: var(--bg-secondary);
     border-color: var(--accentColor);
-    
+
 }
