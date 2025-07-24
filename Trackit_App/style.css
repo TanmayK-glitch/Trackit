@@ -10,6 +10,7 @@ body {
     padding: 0;
     background-color: var(--bg-primary);
     scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 :root {
@@ -23,6 +24,17 @@ body {
     --dangerDelete: #dc2626;
 }
 
+[data-theme="light"] {
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555555;
+    --inputFields: #ffffff;
+    --accentColor: #f97316;
+    --borderColor: #dcdcdc;
+    --dangerDelete: #dc2626;
+}
+
 
 .navbar {
     width: 100%;
@@ -33,6 +45,17 @@ body {
     gap: 500px;
     color: var(--text-primary);
     border: 1px solid var(--borderColor);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgb(12, 13, 13, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .navbar {
+    background: rgba(249, 249, 249, 0.7);
 }
 
 .navbar .logo h1 {
@@ -48,8 +71,12 @@ body {
 
 }
 
-.navbar .nav-controls .ri-moon-fill {
+[data-theme="light"] .navbar .nav-controls .nav-btn .ri-sun-fill {
     display: none;
+}
+
+[data-theme="light"] .navbar .nav-controls .nav-btn .ri-moon-fill {
+    display: inline;
 }
 
 .navbar .nav-controls button {
@@ -68,7 +95,7 @@ body {
     text-align: center;
     color: var(--text-primary);
     font-size: 1.5rem;
-    margin-top: 10vh;
+    margin-top: 25vh;
     margin-bottom: 10vh;
 }
 
@@ -134,6 +161,10 @@ select:focus {
 .mainContainer .containerForm label {
     font-size: 1.15rem;
     font-weight: 500;
+}
+
+[data-theme="light"] .mainContainer #addBtn {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
 }
 
 .mainContainer #addBtn {
