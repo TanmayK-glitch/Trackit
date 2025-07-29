@@ -41,6 +41,15 @@ const categoryInput = document.querySelector('#category');
 const dateInput = document.querySelector('#date');
 const addButton = document.querySelector('#addBtn');
 let expenses = []; // To store expenses.
+const categoryEmoji = {
+    food: "🍕",
+    transport: "🚗",
+    entertainment: "🎬",
+    shopping: "🛍️",
+    utilities: "💡",
+    bills: "🧾",
+    other: "🗂️"
+};
 
 function addExpense() {
     if (!dateInput.value || !categoryInput.value || !amountInput.value) {
@@ -58,8 +67,14 @@ function addExpense() {
     const removeButton = document.createElement('button');
     removeButton.classList.add('removeBtn');
     li.classList.add('expense-item');
-    li.innerHTML = `<span class="text-left">${expense.date} | ${expense.category}</span>
-                    <span class="text-right">${expense.amount}</span>`
+    const emoji = categoryEmoji[expense.category];
+
+    // Converting date text
+    const rawDate = new Date(dateInput.value);
+    const formattedDate = `${rawDate.getDate()} ${rawDate.toLocaleString('default', { month: 'long' })}`;
+
+    li.innerHTML = `<span class="text-left">${formattedDate} | ${emoji}${expense.category}</span>
+                    <span class="text-right">₹${expense.amount}</span>`
     expenseList.appendChild(li);
     removeButton.textContent = "Remove";
     removeButton.addEventListener('click', function () {
