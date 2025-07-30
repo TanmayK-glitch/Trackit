@@ -79,8 +79,20 @@ function addExpense() {
     removeButton.textContent = "Remove";
     removeButton.addEventListener('click', function () {
         expenseList.removeChild(li);
+        expenses = expenses.filter(e => e !== expense);
+        totalSpending();
     });
+    // <--------Calling the func------------->
+    totalSpending();
     li.appendChild(removeButton);
     document.querySelector('.containerForm').reset();
 }
 addButton.addEventListener('click', addExpense);
+
+// Displaying total monthly spending on UI.
+function totalSpending() {
+    const total = expenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
+    console.log("Total Spending Calculated.", total);
+    document.getElementById('totalAmount').textContent = `₹${total}`;
+
+}
