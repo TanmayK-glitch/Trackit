@@ -82,17 +82,33 @@ function addExpense() {
         expenses = expenses.filter(e => e !== expense);
         totalSpending();
     });
-    // <--------Calling the func------------->
+    // <--------Calling the total pending func------------->
     totalSpending();
     li.appendChild(removeButton);
-    document.querySelector('.containerForm').reset();
+    clearInputs();
 }
+// To empty all the fields after adding li
+function clearInputs() {
+    descriptionInput.value = '';
+    amountInput.value = '';
+    categoryInput.value = '';
+    dateInput.value = '';
+}
+
 addButton.addEventListener('click', addExpense);
 
-// Displaying total monthly spending on UI.
+// Calculating the total monthly spending.
 function totalSpending() {
-    const total = expenses.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
-    console.log("Total Spending Calculated.", total);
-    document.getElementById('totalAmount').textContent = `₹${total}`;
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
 
+    const monthlyExpense = expenses.filter((exp) => {
+        let date = new Date(exp.date);
+        return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
+    });
+
+    const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
+    console.log(`Monthly Total: ${total}`);
+    document.getElementById('totalAmount').textContent = `₹${total}`;
 }
