@@ -40,7 +40,7 @@ const amountInput = document.querySelector('#amount');
 const categoryInput = document.querySelector('#category');
 const dateInput = document.querySelector('#date');
 const addButton = document.querySelector('#addBtn');
-let expenses = []; // To store expenses.
+let expenses = []; // To store expense list.
 const categoryEmoji = {
     food: "🍕",
     transport: "🚗",
@@ -68,7 +68,6 @@ function addExpense() {
     removeButton.classList.add('removeBtn');
     li.classList.add('expense-item');
     const emoji = categoryEmoji[expense.category];
-
     // Converting date text
     const rawDate = new Date(dateInput.value);
     const formattedDate = `${rawDate.getDate()} ${rawDate.toLocaleString('default', { month: 'long' })}`;
@@ -81,23 +80,24 @@ function addExpense() {
         expenseList.removeChild(li);
         expenses = expenses.filter(e => e !== expense);
         totalSpending();
+        toggleIcon();
     });
     // <--------Calling the total pending func------------->
     totalSpending();
     li.appendChild(removeButton);
-    clearInputs();
+    // clearInputs();
 }
 // To empty all the fields after adding li
-function clearInputs() {
-    descriptionInput.value = '';
-    amountInput.value = '';
-    categoryInput.value = '';
-    dateInput.value = '';
-}
+// function clearInputs() {
+//     descriptionInput.value = '';
+//     amountInput.value = '';
+//     categoryInput.value = '';
+//     dateInput.value = '';
+// }
 
 addButton.addEventListener('click', addExpense);
 
-// Calculating the total monthly spending.
+// <-----------------------Calculating the total monthly spending.------------------->
 function totalSpending() {
     const now = new Date();
     const currentYear = now.getFullYear();
@@ -112,3 +112,42 @@ function totalSpending() {
     console.log(`Monthly Total: ${total}`);
     document.getElementById('totalAmount').textContent = `₹${total}`;
 }
+
+// <------------------Show li toggle btn------------------>
+let showAll = false;
+const downBtn = document.getElementById('downBtn');
+const upBtn = document.getElementById('upBtn');
+function toggleIcon() {
+    if (expenses.length > 5) {
+        upBtn.style.display = 'inline';
+        downBtn.style.display = 'none';
+    }
+    else {
+        upBtn.style.display = 'none';
+        downBtn.style.display = 'none';
+    }
+}
+
+downBtn.addEventListener('click', function () {
+    showAll = !showAll;
+    upBtn.style.display = 'inline';
+    downBtn.style.display = 'none';
+});
+
+upBtn.addEventListener('click', function () {
+    showAll = false;
+    upBtn.style.display = 'none';
+    downBtn.style.display = 'inline';
+});
+
+function renderExpenses(){
+    expenseList.innerHTML = '';
+
+}
+
+// const expenseList = document.getElementById('expenseList');
+// const descriptionInput = document.querySelector('#description');
+// const amountInput = document.querySelector('#amount');
+// const categoryInput = document.querySelector('#category');
+// const dateInput = document.querySelector('#date');
+// const addButton = document.querySelector('#addBtn');
