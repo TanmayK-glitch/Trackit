@@ -84,8 +84,10 @@ function addExpense() {
     });
     // <--------Calling the total pending func------------->
     totalSpending();
+    renderExpenses();
     li.appendChild(removeButton);
     // clearInputs();
+
 }
 // To empty all the fields after adding li
 // function clearInputs() {
@@ -117,37 +119,82 @@ function totalSpending() {
 let showAll = false;
 const downBtn = document.getElementById('downBtn');
 const upBtn = document.getElementById('upBtn');
-function toggleIcon() {
-    if (expenses.length > 5) {
-        upBtn.style.display = 'inline';
+function toggleIcon(monthlyExpenseCount) {
+    // Use the passed count or calculate current month expenses if not provided
+    const count = monthlyExpenseCount !== undefined ? monthlyExpenseCount : expenses.filter(exp => {
+        const now = new Date();
+        const date = new Date(exp.date);
+        return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
+    }).length;
+
+    if (count > 5) {
+        if (showAll) {
+            downBtn.style.display = 'none';
+            upBtn.style.display = 'inline';
+        } else {
+            downBtn.style.display = 'inline';
+            upBtn.style.display = 'none';
+        }
+    } else {
         downBtn.style.display = 'none';
-    }
-    else {
         upBtn.style.display = 'none';
-        downBtn.style.display = 'none';
     }
 }
 
 downBtn.addEventListener('click', function () {
-    showAll = !showAll;
-    upBtn.style.display = 'inline';
-    downBtn.style.display = 'none';
+    showAll = true;
+    renderExpenses(); // Re-render to show all expenses
 });
 
 upBtn.addEventListener('click', function () {
     showAll = false;
-    upBtn.style.display = 'none';
-    downBtn.style.display = 'inline';
+    renderExpenses(); // Re-render to show only 5 expenses
 });
+renderExpenses();
 
-function renderExpenses(){
+function renderExpenses() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+
+    // Filter expenses for current month
+    const monthlyExpense = expenses.filter((expense) => {
+        const date = new Date(expense.date);
+        return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
+    });
+
+    // Clear the expense list for new li
     expenseList.innerHTML = '';
 
-}
+    monthlyExpense.sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, showAll ? monthlyExpense.length : 5)
+        .forEach((expense) => {
+            const li = document.createElement('li');
+            const removeButton = document.createElement('button');
+            removeButton.classList.add('removeBtn');
+            li.classList.add('expense-item');
+            const emoji = categoryEmoji[expense.category];
 
-// const expenseList = document.getElementById('expenseList');
-// const descriptionInput = document.querySelector('#description');
-// const amountInput = document.querySelector('#amount');
-// const categoryInput = document.querySelector('#category');
-// const dateInput = document.querySelector('#date');
-// const addButton = document.querySelector('#addBtn');
+            const rawDate = new Date(expense.date);
+            const formattedDate = `${rawDate.getDate()} ${rawDate.toLocaleString('default', { month: 'long' })}`;
+
+            li.innerHTML = `<span class="text-left">${formattedDate} | ${emoji}${expense.category}</span>
+                                  <span class="text-right">₹${expense.amount}</span>`;
+
+                                  removeButton.innerHTML = 'Remove';
+            removeButton.addEventListener('click', function () {
+                // Remove from expenses array
+                expenses = expenses.filter(e => e !== expense);
+                // Re-render the list and update total
+                renderExpenses();
+                totalSpending();
+            });
+
+            li.appendChild(removeButton);
+            expenseList.appendChild(li);
+        });
+
+    // Update toggle buttons based on number of monthly expenses
+    toggleIcon();
+};
+renderExpenses();
