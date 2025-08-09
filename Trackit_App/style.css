@@ -142,8 +142,6 @@ body {
     transition: 0.3s ease-in-out;
     border: 1px solid transparent;
     color: var(--text-secondary);
-
-
 }
 
 .mainContainer .containerForm input:focus,
@@ -165,6 +163,10 @@ select:focus {
 
 [data-theme="light"] .mainContainer #addBtn {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .mainContainer {
+    box-shadow: 8px -1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .mainContainer #addBtn {
@@ -235,16 +237,13 @@ select:focus {
 }
 
 .toggleBtn {
-    margin-top: 1rem;
-}
-
-.toggleBtn i {
     font-size: 2rem;
+    font-weight: 500;
     color: var(--accentColor);
     display: flex;
-    justify-self: center;
     align-self: center;
-}
+    justify-self: center;
+}   
 
 /* New li list styling*/
 .expense-item {
@@ -267,10 +266,11 @@ select:focus {
     background-color: var(--dangerDelete);
     text-transform: capitalize;
     padding: 0.35rem 0.35rem;
-    border-radius: 0.2rem;
+    border-radius: 0.35rem;
     border: transparent;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    font-weight: 500;
 }
 
 .removeBtn:hover {
