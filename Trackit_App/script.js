@@ -61,7 +61,7 @@ function addExpense() {
         category: categoryInput.value,
         amount: amountInput.value
     };
-    expenses.push(expense);
+    expenses.unshift(expense); // Unshift is used here to add the new li on TOP
 
     const li = document.createElement('li');
     const removeButton = document.createElement('button');
