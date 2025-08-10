@@ -94,16 +94,16 @@ function addExpense() {
     totalSpending();
     renderExpenses();
     li.appendChild(removeButton);
-    // clearInputs();
+    clearInputs();
 
 }
 // To empty all the fields after adding li
-// function clearInputs() {
-//     descriptionInput.value = '';
-//     amountInput.value = '';
-//     categoryInput.value = '';
-//     dateInput.value = '';
-// }
+function clearInputs() {
+    descriptionInput.value = '';
+    amountInput.value = '';
+    categoryInput.value = '';
+    dateInput.value = '';
+}
 
 addButton.addEventListener('click', addExpense);
 
