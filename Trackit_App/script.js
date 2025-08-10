@@ -1,3 +1,4 @@
+let expenses = []; // To store expense list.
 // <----------------------Light / Dark Mode------------------------>
 document.addEventListener('DOMContentLoaded', function () {
     const sunIcon = document.querySelector('.ri-sun-fill');
@@ -31,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('theme', 'dark');
         updateIcons();
     });
+
+    // <----------------Saving expenses to local storage--------------->
+    const savedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    expenses = savedExpenses;
+    renderExpenses();
+    totalSpending();
 });
 
 // <----------------Fetching expense list from the form filled by user and adding to the UI--------------------->
@@ -40,7 +47,6 @@ const amountInput = document.querySelector('#amount');
 const categoryInput = document.querySelector('#category');
 const dateInput = document.querySelector('#date');
 const addButton = document.querySelector('#addBtn');
-let expenses = []; // To store expense list.
 const categoryEmoji = {
     food: "🍕",
     transport: "🚗",
@@ -63,6 +69,9 @@ function addExpense() {
     };
     expenses.unshift(expense); // Unshift is used here to add the new li on TOP
 
+    // Storing in local storage 
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+
     const li = document.createElement('li');
     const removeButton = document.createElement('button');
     removeButton.classList.add('removeBtn');
@@ -80,7 +89,6 @@ function addExpense() {
         expenseList.removeChild(li);
         expenses = expenses.filter(e => e !== expense);
         totalSpending();
-        toggleIcon();
     });
     // <--------Calling the total pending func------------->
     totalSpending();
@@ -181,11 +189,12 @@ function renderExpenses() {
             li.innerHTML = `<span class="text-left">${formattedDate} | ${emoji}${expense.category}</span>
                                   <span class="text-right">₹${expense.amount}</span>`;
 
-                                  removeButton.innerHTML = 'Remove';
+            removeButton.innerHTML = 'Remove';
             removeButton.addEventListener('click', function () {
                 // Remove from expenses array
                 expenses = expenses.filter(e => e !== expense);
                 // Re-render the list and update total
+                localStorage.setItem('expenses', JSON.stringify(expenses));
                 renderExpenses();
                 totalSpending();
             });
