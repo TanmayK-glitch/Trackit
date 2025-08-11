@@ -94,20 +94,21 @@ function addExpense() {
     totalSpending();
     renderExpenses();
     li.appendChild(removeButton);
-    clearInputs();
+    // clearInputs();
 
 }
 // To empty all the fields after adding li
-function clearInputs() {
-    descriptionInput.value = '';
-    amountInput.value = '';
-    categoryInput.value = '';
-    dateInput.value = '';
-}
+// function clearInputs() {
+//     descriptionInput.value = '';
+//     amountInput.value = '';
+//     categoryInput.value = '';
+//     dateInput.value = '';
+// }
 
 addButton.addEventListener('click', addExpense);
 
-// <-----------------------Calculating the total monthly spending.------------------->
+// <-----------------------Calculating the total monthly spending, also total amount of 
+//                          category the user is selecting------------------->ss
 function totalSpending() {
     const now = new Date();
     const currentYear = now.getFullYear();
@@ -118,6 +119,11 @@ function totalSpending() {
         return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
     });
 
+    if (selectedCategory != 'all') {
+        monthlyExpense = monthlyExpense.filter(exp => exp.category === selectedCategory);
+    }
+
+    // const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
     const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
     console.log(`Monthly Total: ${total}`);
     document.getElementById('totalAmount').textContent = `₹${total}`;
@@ -125,6 +131,7 @@ function totalSpending() {
 
 // <------------------Show li toggle btn------------------>
 let showAll = false;
+let selectedCategory = 'all'; // For filtering
 const downBtn = document.getElementById('downBtn');
 const upBtn = document.getElementById('upBtn');
 function toggleIcon(monthlyExpenseCount) {
@@ -160,16 +167,30 @@ upBtn.addEventListener('click', function () {
 });
 renderExpenses();
 
+// Event listener for filtering cat
+filterCategory.addEventListener('change', function () {
+    selectedCategory = this.value;
+    renderExpenses();
+    totalSpending();
+});
+
 function renderExpenses() {
     const now = new Date();
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth();
 
+    // <-------------------Logic for filtering categories--------------->
+    const filterCategory = document.getElementById('filterCategory').value;
+
     // Filter expenses for current month
-    const monthlyExpense = expenses.filter((expense) => {
+    let monthlyExpense = expenses.filter((expense) => {
         const date = new Date(expense.date);
         return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
     });
+
+    if (filterCategory != 'all') {
+        monthlyExpense = monthlyExpense.filter(expense => expense.category === filterCategory);
+    }
 
     // Clear the expense list for new li
     expenseList.innerHTML = '';
