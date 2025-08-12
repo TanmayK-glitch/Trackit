@@ -47,6 +47,7 @@ const amountInput = document.querySelector('#amount');
 const categoryInput = document.querySelector('#category');
 const dateInput = document.querySelector('#date');
 const addButton = document.querySelector('#addBtn');
+let selectedCategory = 'all'; // For filtering
 const categoryEmoji = {
     food: "🍕",
     transport: "🚗",
@@ -114,7 +115,7 @@ function totalSpending() {
     const currentYear = now.getFullYear();
     const currentMonth = now.getMonth();
 
-    const monthlyExpense = expenses.filter((exp) => {
+    let monthlyExpense = expenses.filter((exp) => {
         let date = new Date(exp.date);
         return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
     });
@@ -122,16 +123,14 @@ function totalSpending() {
     if (selectedCategory != 'all') {
         monthlyExpense = monthlyExpense.filter(exp => exp.category === selectedCategory);
     }
-
-    // const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
+    
     const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
-    console.log(`Monthly Total: ${total}`);
+    // console.log(`Monthly Total: ${total}`);
     document.getElementById('totalAmount').textContent = `₹${total}`;
 }
 
 // <------------------Show li toggle btn------------------>
 let showAll = false;
-let selectedCategory = 'all'; // For filtering
 const downBtn = document.getElementById('downBtn');
 const upBtn = document.getElementById('upBtn');
 function toggleIcon(monthlyExpenseCount) {
