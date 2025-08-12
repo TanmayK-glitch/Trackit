@@ -292,3 +292,30 @@ select:focus {
         transform: translateY(0);
     }
 }
+
+.chartContainer {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    border: 1px solid var(--borderColor);
+    margin-top: 10vh;
+    padding: 1.5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#expenseChart{
+    width: 100% !important;
+    height: 400px !important;
+    max-width: 400px;
+    max-height: 400px;
+    position: relative;
+    margin-top: 2rem;    
+}
+
+.chartContainer h3 {
+    color: var(--text-primary);
+}

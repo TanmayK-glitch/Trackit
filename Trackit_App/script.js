@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     expenses = savedExpenses;
     renderExpenses();
     totalSpending();
+    createExpenseChart();
 });
 
 // <----------------Fetching expense list from the form filled by user and adding to the UI--------------------->
@@ -95,6 +96,7 @@ function addExpense() {
     totalSpending();
     renderExpenses();
     li.appendChild(removeButton);
+    createExpenseChart(); // Calling chart
     // clearInputs();
 
 }
@@ -123,7 +125,7 @@ function totalSpending() {
     if (selectedCategory != 'all') {
         monthlyExpense = monthlyExpense.filter(exp => exp.category === selectedCategory);
     }
-    
+
     const total = monthlyExpense.reduce((sum, expense) => sum + parseFloat(expense.amount), 0);
     // console.log(`Monthly Total: ${total}`);
     document.getElementById('totalAmount').textContent = `₹${total}`;
@@ -171,6 +173,7 @@ filterCategory.addEventListener('change', function () {
     selectedCategory = this.value;
     renderExpenses();
     totalSpending();
+    createExpenseChart();
 });
 
 function renderExpenses() {
@@ -225,5 +228,115 @@ function renderExpenses() {
 
     // Update toggle buttons based on number of monthly expenses
     toggleIcon();
+    createExpenseChart();
 };
 renderExpenses();
+
+// <----------------------Code for chart.js----------------------------->
+let expenseChart = null;
+
+function createExpenseChart() {
+    console.log("Creating expense chart...");
+    
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
+
+    const monthlyExpense = expenses.filter((expense) => {
+        const date = new Date(expense.date);
+        return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
+    });
+
+    console.log("Monthly expenses found:", monthlyExpense.length);
+
+    const categoryTotals = {};
+
+    const categoryColors = {
+        food: '#FFB347',
+        transport: '#4DB6AC',
+        entertainment: '#BA68C8',
+        shopping: '#FF7043',
+        utilities: '#FFD54F',
+        bills: '#64B5F6',
+        other: '#A1887F',
+    };
+
+    // Initialize categories
+    Object.keys(categoryEmoji).forEach(category => {
+        categoryTotals[category] = 0;
+    });
+
+    // Calculate totals
+    monthlyExpense.forEach(expense => {
+        categoryTotals[expense.category] = categoryTotals[expense.category] + parseFloat(expense.amount);
+    });
+
+    // Prepare data for Chart.js
+    const labels = [];
+    const data = [];
+    const colors = [];
+
+    Object.keys(categoryTotals).forEach(category => {
+        if (categoryTotals[category] > 0) {
+            labels.push(`${categoryEmoji[category]} ${category.charAt(0).toUpperCase() + category.slice(1)}`);
+            data.push(categoryTotals[category]);
+            colors.push(categoryColors[category]);
+        }
+    });
+
+    console.log("Chart data prepared:", { labels, data, colors });
+
+    // Check if we have data to display
+    if (data.length === 0) {
+        console.log("No expenses to chart");
+        return;
+    }
+
+    
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+
+    // Destroy existing chart safely
+    if (expenseChart !== null) {
+        expenseChart.destroy();
+        expenseChart = null;
+    }
+
+    expenseChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors,
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20,
+                        font: {
+                            size: 12
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const total = data.reduce((sum, value) => sum + value, 0);
+                            const percentage = ((context.parsed / total) * 100).toFixed(1);
+                            return `₹${context.parsed} (${percentage}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    console.log("Chart created successfully!");
+}

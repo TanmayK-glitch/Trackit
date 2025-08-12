@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -81,6 +83,11 @@
             <i class="ri-arrow-down-s-fill" style=" cursor: pointer;" id="downBtn"></i>
             <i class="ri-arrow-up-s-fill" style="cursor: pointer;" id="upBtn"></i>
         </div>
+    </div>
+
+    <div class="chartContainer">
+        <h3> Monthly Spendings Analysis</h3>
+        <canvas id="expenseChart" height="400" width="400"> </canvas>
     </div>
     <script src="script.js"></script>
 </body>
