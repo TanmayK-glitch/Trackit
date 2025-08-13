@@ -307,15 +307,21 @@ select:focus {
     overflow: hidden;
 }
 
-#expenseChart{
+#expenseChart {
     width: 100% !important;
     height: 400px !important;
     max-width: 400px;
     max-height: 400px;
     position: relative;
-    margin-top: 2rem;    
+    margin-top: 2rem;
 }
 
 .chartContainer h3 {
+    color: var(--text-primary);
+}
+
+.chartContainer p {
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--text-primary);
 }
