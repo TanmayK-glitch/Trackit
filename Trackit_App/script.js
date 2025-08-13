@@ -236,7 +236,7 @@ renderExpenses();
 let expenseChart = null;
 
 function createExpenseChart() {
-    console.log("Creating expense chart...");
+    chartContainer.innerHTML = '';
     
     const now = new Date();
     const currentYear = now.getFullYear();
@@ -247,7 +247,16 @@ function createExpenseChart() {
         return date.getMonth() === currentMonth && date.getFullYear() === currentYear;
     });
 
-    console.log("Monthly expenses found:", monthlyExpense.length);
+    if(monthlyExpense.length === 0){
+        chartNote.innerHTML = "Add an Expense List to view chart.";
+        chartContainer.appendChild(chartNote);
+        return;
+    }
+
+    if(expenseChart !== null){
+        expenseChart.destroy();
+        expenseChart = null;
+    }
 
     const categoryTotals = {};
 
@@ -337,6 +346,11 @@ function createExpenseChart() {
             }
         }
     });
-
-    console.log("Chart created successfully!");
 }
+
+const chartNote = document.createElement('p');
+const chartContainer = document.querySelector('.chartContainer');
+// if(expenses.length === 0){
+//     chartNote.innerHTML = "Add an Expense List to view chart.";
+//     chartContainer.appendChild(chartNote);
+// }
