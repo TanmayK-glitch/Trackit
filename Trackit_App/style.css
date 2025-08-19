@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 html,
@@ -11,6 +10,7 @@ body {
     padding: 0;
     background-color: var(--bg-primary);
     scroll-behavior: smooth;
+    overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -41,14 +41,14 @@ body {
     width: 100%;
     height: 120px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 500px;
     color: var(--text-primary);
     border: 1px solid var(--borderColor);
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 1000;
     background: rgb(12, 13, 13, 0.7);
     backdrop-filter: blur(10px);
@@ -69,7 +69,6 @@ body {
     cursor: pointer;
     padding: 9px 9px;
     border-radius: 6px;
-
 }
 
 [data-theme="light"] .navbar .nav-controls .nav-btn .ri-sun-fill {
@@ -333,12 +332,14 @@ select:focus {
 
 /* <------------Responsiveness-------------> */
 @media (max-width: 1200px) {
-    .navbar .logo h1{
+    .navbar .logo h1 {
         font-size: 2.7rem;
     }
+
     .navbar .nav-controls i {
         font-size: 1.8rem;
     }
+
     .tagLine h1 {
         font-size: 2.8rem;
     }
@@ -351,14 +352,16 @@ select:focus {
 }
 
 @media (max-width: 768px) {
-    .navbar .logo h1{
+    .navbar .logo h1 {
         font-size: 2.3rem;
         margin-left: 20px;
     }
-    .navbar .nav-controls i{
+
+    .navbar .nav-controls i {
         font-size: 1.6rem;
         margin-right: 30px;
     }
+
     .tagLine h1 {
         font-size: 2rem;
         padding: 10px 20px;
@@ -366,8 +369,105 @@ select:focus {
     }
 }
 
-@media (max-screen: 576px) {
+@media (max-width: 576px) {
     .navbar .logo h1 {
-        margin-left: 100px;
+        font-size: 2.2rem;
+        padding: 0rem 1.5rem;
+    }
+
+    .navbar .nav-controls .nav-btn i {
+        padding: 0rem 2rem;
+    }
+
+    .tagLine h1 {
+        font-size: 1.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo h1 {
+        padding: 0rem 0.5rem;
+    }
+
+    .navbar .nav-controls .nav-btn i {
+        padding: 0rem 0.6rem;
+    }
+
+    .tagLine h1 {
+        font-size: 1.95rem;
+        padding: 0rem 2rem;
+    }
+
+    .mainContainer {
+        max-width: 60%;
+    }
+
+    .mainContainer #addBtn {
+        padding: 0.65rem 8rem;
+    }
+
+    .chartContainer {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        height: 13%;
+    }
+    .navbar .logo h1 {
+        font-size: 2rem;
+    }
+
+    .mainContainer .containerForm {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .mainContainer #addBtn {
+        padding: 0.6rem 7rem;
+    }
+
+    .mainContainer .summary h2 {
+        font-size: 1.5rem;
+        display: flex;
+        gap: 10px;
+    }
+
+    .mainContainer .summary {
+        width: 100%;
+    }
+
+    .mainContainer .filter #filterCategory{
+        padding: 0.5rem 5rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .tagLine {
+        transform: translateY(-30px);
+    }
+    .mainContainer .filter #filterCategory{
+        padding: 0.5rem 4rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .navbar .logo h1 {
+        font-size: 1.7rem;
+    }
+    .navbar .nav-controls .nav-btn i {
+        font-size: 1.5rem;
+    }
+    .mainContainer #addBtn {
+        padding: 0.6rem 5.5rem;
+    }
+
+    .mainContainer .filter h3 {
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    .mainContainer .filter #filterCategory{
+        padding: 0.5rem 3rem;
     }
 }
