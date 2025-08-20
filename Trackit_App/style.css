@@ -62,12 +62,13 @@ body {
 .navbar .logo h1 {
     font-size: 3rem;
     font-weight: 600;
+    padding-left: 2rem;
 }
 
 .navbar .nav-controls i {
     font-size: 1.6rem;
     cursor: pointer;
-    padding: 9px 9px;
+    padding-right: 2.5rem;
     border-radius: 6px;
 }
 
