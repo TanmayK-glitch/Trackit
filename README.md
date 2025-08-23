@@ -12,7 +12,6 @@ A simple web-based expense tracker built with vanilla HTML, CSS, and JavaScript.
 - Responsive design
 
 ## Live Demo
-
 https://trackitapp-phi.vercel.app/
 
 ## Tech Stack
