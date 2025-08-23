@@ -7,6 +7,7 @@ A simple web-based expense tracker built with vanilla HTML, CSS, and JavaScript.
 - Add and track expenses
 - Categorize expenses
 - View expense history
+- Pie chart visualization for expense analysis
 - Persistent data storage (localStorage)
 - Responsive design
 
@@ -20,15 +21,15 @@ A simple web-based expense tracker built with vanilla HTML, CSS, and JavaScript.
 ## Setup
 
 ```bash
-git clone https://github.com/your-username/expense-tracker.git
-cd expense-tracker
+git clone https://github.com/TanmayK-glitch/Trackit.git
+cd Trackit
 open index.html
 ```
 
 ## File Structure
 
 ```
-expense-tracker/
+Trackit/
 ├── index.html
 ├── styles.css
 ├── script.js
@@ -41,6 +42,7 @@ expense-tracker/
 2. Select or add a category
 3. Click "Add Expense"
 4. View your expenses in the list below
+5. Check the pie chart to analyze spending by category
 
 Data is automatically saved to localStorage and persists between sessions.
 
