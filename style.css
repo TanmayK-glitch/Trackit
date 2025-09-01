@@ -39,13 +39,13 @@ body {
 #your-div {
     position: relative;
     background-color: #000000;
-    background-image: 
-      radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.2) 1px, transparent 0),
-      radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0),
-      radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.15) 1px, transparent 0);
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.2) 1px, transparent 0),
+        radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0),
+        radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.15) 1px, transparent 0);
     background-size: 20px 20px, 30px 30px, 25px 25px;
     background-position: 0 0, 10px 10px, 15px 5px;
-  }
+}
 
 .navbar {
     width: 100%;
@@ -84,7 +84,6 @@ body {
     border-radius: 6px;
 }
 
-/* Ensure GitHub link/icon uses normal text color, not default link blue/purple */
 .navbar .nav-controls a:link,
 .navbar .nav-controls a:visited {
     color: var(--text-primary);
@@ -181,6 +180,14 @@ select:focus {
     font-weight: 500;
 }
 
+.mainContainer .containerForm label,
+textarea,
+select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 [data-theme="light"] .mainContainer #addBtn {
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12);
 }
@@ -190,6 +197,8 @@ select:focus {
 }
 
 .mainContainer #addBtn {
+    -webkit-appearance: none;
+    appearance: none;
     display: flex;
     margin-top: 25px;
     padding: 0.65rem 11rem;
@@ -202,6 +211,8 @@ select:focus {
     transition: 0.2s ease-in-out;
     cursor: pointer;
 }
+
+
 
 .mainContainer #addBtn:hover {
     background-color: #ff9800;
@@ -402,6 +413,17 @@ select:focus {
     .tagLine h1 {
         font-size: 1.95rem;
     }
+
+    /* to solve that mf bug */
+    .containerForm input,
+    .containerForm select,
+    .containerForm label,
+    .containerForm #addBtn {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -429,12 +451,23 @@ select:focus {
     .chartContainer {
         max-width: 70%;
     }
+
+    /* to solve that mf bug */
+    .containerForm input,
+    .containerForm select,
+    .containerForm label,
+    .containerForm #addBtn {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 420px) {
     .navbar {
         height: 13%;
     }
+
     .navbar .logo h1 {
         font-size: 2rem;
     }
@@ -458,27 +491,51 @@ select:focus {
         width: 100%;
     }
 
-    .mainContainer .filter #filterCategory{
+    .mainContainer .filter #filterCategory {
         padding: 0.5rem 5rem;
     }
+
+    /* to solve that mf bug */
+    .containerForm input,
+    .containerForm select,
+    .containerForm label,
+    .containerForm #addBtn {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
 }
 
 @media (max-width: 360px) {
     .tagLine {
         transform: translateY(-30px);
     }
-    .mainContainer .filter #filterCategory{
+
+    .mainContainer .filter #filterCategory {
         padding: 0.5rem 4rem;
     }
+
+     /* to solve that mf bug */
+     .containerForm input,
+     .containerForm select,
+     .containerForm label,
+     .containerForm #addBtn {
+         max-width: 100%;
+         width: 100%;
+         box-sizing: border-box;
+     }
 }
 
 @media (max-width: 320px) {
     .navbar .logo h1 {
         font-size: 1.7rem;
     }
+
     .navbar .nav-controls .nav-btn i {
         font-size: 1.5rem;
     }
+
     .mainContainer #addBtn {
         padding: 0.6rem 5.5rem;
     }
@@ -487,7 +544,18 @@ select:focus {
         font-size: 1.1rem;
         font-weight: 300;
     }
-    .mainContainer .filter #filterCategory{
+
+    .mainContainer .filter #filterCategory {
         padding: 0.5rem 3rem;
     }
+
+     /* to solve that mf bug */
+     .containerForm input,
+     .containerForm select,
+     .containerForm label,
+     .containerForm #addBtn {
+         max-width: 100%;
+         width: 100%;
+         box-sizing: border-box;
+     }
 }
