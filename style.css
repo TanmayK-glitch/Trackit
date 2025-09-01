@@ -361,6 +361,46 @@ select {
     color: var(--text-primary);
 }
 
+
+input, select, button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 7px;
+    padding: 0.65rem 0.75rem;
+    font-size: 16px; 
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--inputFields);
+    color: var(--text-secondary);
+  }
+  
+
+  .mainContainer #addBtn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;         
+    background-color: var(--accentColor);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .mainContainer #addBtn:hover {
+    background-color: #ff9800;
+  }
+  
+  /* Fix filter dropdown */
+  .mainContainer .filter #filterCategory {
+    width: 100%;             
+    max-width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+
 /* <------------Responsiveness-------------> */
 @media (max-width: 1200px) {
     .navbar .logo h1 {
