@@ -202,8 +202,6 @@ select:focus {
     cursor: pointer;
 }
 
-
-
 .mainContainer #addBtn:hover {
     background-color: #ff9800;
 }
@@ -388,6 +386,12 @@ select:focus {
         padding: 10px 20px;
         margin-bottom: -10px;
     }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -402,6 +406,12 @@ select:focus {
 
     .tagLine h1 {
         font-size: 1.95rem;
+    }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
     }
 
 }
@@ -430,6 +440,12 @@ select:focus {
 
     .chartContainer {
         max-width: 70%;
+    }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
     }
 }
 
@@ -464,6 +480,12 @@ select:focus {
     .mainContainer .filter #filterCategory {
         padding: 0.5rem 5rem;
     }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
+    }
 }
 
 @media (max-width: 360px) {
@@ -473,6 +495,12 @@ select:focus {
 
     .mainContainer .filter #filterCategory {
         padding: 0.5rem 4rem;
+    }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
     }
 }
 
@@ -496,5 +524,11 @@ select:focus {
 
     .mainContainer .filter #filterCategory {
         padding: 0.5rem 3rem;
+    }
+
+    #addBtn {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+        outline: none;
     }
 }
