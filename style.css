@@ -388,9 +388,20 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 }
 
@@ -409,9 +420,20 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 
 }
@@ -443,9 +465,20 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 }
 
@@ -482,9 +515,20 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 }
 
@@ -498,9 +542,20 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 }
 
@@ -527,8 +582,19 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-focus-ring-color: transparent;
-        outline: none;
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-appearance: none;
+        outline: none !important;
+        border: none;
+    }
+    
+    #addBtn:focus,
+    #addBtn:active {
+        outline: none !important;
+        border: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 }
