@@ -57,10 +57,14 @@
                     <input type="date" id="date" name="date" placeholder="Date">
                 </div>
             </div>
-            <button id="addBtn"> <i class="ri-add-line"></i> Add </button>
+            <div class="addBtnWrapper">
+                <button id="addBtn"> <i class="ri-add-line"></i> Add </button>
+            </div>
 
-            <div class="summary">
-                <h2> Total Spent: <span id="totalAmount">₹0</span></h2>
+            <div class="summaryWrapper">
+                <div class="summary">
+                    <h2> Total Spent: <span id="totalAmount">₹0</span></h2>
+                </div>
             </div>
 
             <div class="filter">
@@ -80,9 +84,11 @@
             <div class="expenses">
                 <ul id="expenseList"></ul>
             </div>
-            <div class="toggleBtn">
-                <i class="ri-arrow-down-s-fill" style=" cursor: pointer;" id="downBtn"></i>
-                <i class="ri-arrow-up-s-fill" style="cursor: pointer;" id="upBtn"></i>
+            <div class="toggleBtnWrapper">
+                <div class="toggleBtn">
+                    <i class="ri-arrow-down-s-fill" style=" cursor: pointer;" id="downBtn"></i>
+                    <i class="ri-arrow-up-s-fill" style="cursor: pointer;" id="upBtn"></i>
+                </div>
             </div>
         </div>
     </div>
