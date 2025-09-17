@@ -211,18 +211,7 @@ select:focus {
     background-color: var(--accentColor);
     transition: 0.2s ease-in-out;
     cursor: pointer;
-}
-
-#addBtn {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-    -webkit-tap-highlight-color: transparent !important;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none !important;
-    border: none;
+    color: var(--bg-primary);
 }
 
 #addBtn:focus,
@@ -320,6 +309,7 @@ select:focus {
     cursor: pointer;
     transition: 0.3s ease-in-out;
     font-weight: 500;
+    color: var(--bg-primary);
 }
 
 .removeBtn:hover {
