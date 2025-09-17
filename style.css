@@ -42,8 +42,6 @@ body {
     justify-content: space-evenly;
     align-items: center;
     color: var(--text-primary);
-    /* border: 1px solid var(--borderColor); */
-    /* position: fixed; */
     top: 0;
     left: 0;
     right: 0;
@@ -169,6 +167,18 @@ select:focus {
 
 [data-theme="light"] .mainContainer {
     box-shadow: 8px -1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Tried to fix the alignment error */
+.mainContainerWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* Tried to fix the alignment error */
+.chartContainerWrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .mainContainer #addBtn {
