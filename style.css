@@ -181,6 +181,24 @@ select:focus {
     justify-content: center;
 }
 
+/* Toggle btn alignment fix */
+.toggleBtnWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+/* Btn Fix */
+.addBtnWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+/* Fix  */
+.summaryWrapper{
+    display: flex;
+    justify-content: center;
+}
+
 .mainContainer #addBtn {
     display: flex;
     margin-top: 25px;
