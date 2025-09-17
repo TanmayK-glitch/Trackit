@@ -25,17 +25,6 @@ body {
     --dangerDelete: #dc2626;
 }
 
-[data-theme="light"] {
-    --bg-primary: #f9f9f9;
-    --bg-secondary: #ffffff;
-    --text-primary: #1a1a1a;
-    --text-secondary: #555555;
-    --inputFields: #ffffff;
-    --accentColor: #f97316;
-    --borderColor: #dcdcdc;
-    --dangerDelete: #dc2626;
-}
-
 #your-div {
     position: relative;
     background-color: #000000;
@@ -49,7 +38,6 @@ body {
 
 .navbar {
     width: 100%;
-    /* height: 120px; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -61,9 +49,6 @@ body {
     right: 0;
     z-index: 1000;
     margin-top: 2rem;
-    /* background: rgb(12, 13, 13, 0.7); */
-    /* backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); */
 }
 
 [data-theme="light"] .navbar {
@@ -73,8 +58,6 @@ body {
 .navbar .logo h1 {
     font-size: 3rem;
     font-weight: 600;
-    /* padding-left: 20rem; */
-    /* margin-top: 2rem; */
 }
 
 .navbar .nav-controls a i {
@@ -203,7 +186,7 @@ select:focus {
 }
 
 #addBtn {
-    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-user-select: none;
     user-select: none;
@@ -407,7 +390,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -417,7 +400,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
@@ -441,7 +424,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -451,7 +434,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
@@ -488,7 +471,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -498,7 +481,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
@@ -540,7 +523,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -550,7 +533,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
@@ -569,7 +552,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -579,7 +562,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
@@ -611,7 +594,7 @@ select:focus {
     }
 
     #addBtn {
-        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
         -webkit-tap-highlight-color: transparent !important;
         -webkit-user-select: none;
         user-select: none;
@@ -621,7 +604,7 @@ select:focus {
         outline: none !important;
         border: none;
     }
-    
+
     #addBtn:focus,
     #addBtn:active {
         outline: none !important;
