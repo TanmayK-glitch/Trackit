@@ -182,19 +182,19 @@ select:focus {
 }
 
 /* Toggle btn alignment fix */
-.toggleBtnWrapper{
+.toggleBtnWrapper {
     display: flex;
     justify-content: center;
 }
 
 /* Btn Fix */
-.addBtnWrapper{
+.addBtnWrapper {
     display: flex;
     justify-content: center;
 }
 
 /* Fix  */
-.summaryWrapper{
+.summaryWrapper {
     display: flex;
     justify-content: center;
 }
