@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackit</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body id="your-div">
+    <div class="navbar">
+        <div class="logo">
+            <h1>Track It</h1>
+        </div>
+        <div class="nav-controls">
+            <div class="nav-btn">
+                <a href="https://github.com/TanmayK-glitch/Trackit.git" target="_blank" title="Github Repo"><i
+                        class="ri-github-line"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="tagLine">
+        <h1>Bhai, paisa ud gaya… kab? <span>TrackIt</span> batayega!</h1>
+    </div>
+    <div class="mainContainerWrapper">
+        <div class="mainContainer">
+            <div class="containerForm">
+                <div>
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" placeholder="Description">
+                </div>
+                <div>
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" placeholder="₹ Amount">
+                </div>
+                <div>
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                        <option value="">Category</option>
+                        <option value="food">🍕 Food</option>
+                        <option value="transport">🚗 Transport</option>
+                        <option value="entertainment">🎬 Entertainment</option>
+                        <option value="shopping">🛍️ Shopping</option>
+                        <option value="utilities">💡 Utilities</option>
+                        <option value="bills">🧾 Bills</option>
+                        <option value="other">🗂️ Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" placeholder="Date">
+                </div>
+            </div>
+            <div class="addBtnWrapper">
+                <button id="addBtn"> <i class="ri-add-line"></i> Add </button>
+            </div>
+
+            <div class="summaryWrapper">
+                <div class="summary">
+                    <h2> Total Spent: <span id="totalAmount">₹0</span></h2>
+                </div>
+            </div>
+
+            <div class="filter">
+                <h3> Filter By Categories</h3>
+                <select id="filterCategory">
+                    <option value="all"> 🌐 All </option>
+                    <option value="food">🍕 Food</option>
+                    <option value="transport">🚗 Transport</option>
+                    <option value="entertainment">🎬 Entertainment</option>
+                    <option value="shopping">🛍️ Shopping</option>
+                    <option value="utilities">💡 Utilities</option>
+                    <option value="bills">🧾 Bills</option>
+                    <option value="other">🗂️ Other</option>
+                </select>
+            </div>
+
+            <div class="expenses">
+                <ul id="expenseList"></ul>
+            </div>
+            <div class="toggleBtnWrapper">
+                <div class="toggleBtn">
+                    <i class="ri-arrow-down-s-fill" style=" cursor: pointer;" id="downBtn"></i>
+                    <i class="ri-arrow-up-s-fill" style="cursor: pointer;" id="upBtn"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chartContainerWrapper">
+        <div class="chartContainer">
+            <h3> Monthly Spendings Analysis</h3>
+            <canvas id="expenseChart" height="400" width="400"> </canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
